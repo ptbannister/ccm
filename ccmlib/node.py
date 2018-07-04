@@ -2100,9 +2100,9 @@ def _grep_log_for_errors(log):
 def handle_external_tool_process(process, cmd_args):
     out, err = process.communicate()
     if (out is not None) and isinstance(out, bytes):
-        out = out.decode()
+        out = out.decode(encoding='utf-8')
     if (err is not None) and isinstance(err, bytes):
-        err = err.decode()
+        err = err.decode(encoding='utf-8')
     rc = process.returncode
 
     if rc != 0:
